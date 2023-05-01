@@ -1,20 +1,34 @@
 import 'package:flutter/material.dart';
+import 'package:finance/models/card_model.dart';
 
 class CardWidget extends StatelessWidget {
-  final String title;
-  final int balance;
-  final String cardNumber;
-  final Color color;
+  final CardModel card;
 
-  CardWidget({required this.title, required this.balance, required this.cardNumber, required this.color});
+  CardWidget({required this.card});
 
   @override
   Widget build(BuildContext context) {
+    Color cardColor = Colors.blue;
+
+    switch (card.color) {
+      case 'blue':
+        cardColor = Colors.blue;
+        break;
+      case 'red':
+        cardColor = Colors.red;
+        break;
+      case 'green':
+        cardColor = Colors.green;
+        break;
+      default:
+        cardColor = Colors.blue;
+    }
+
     return Container(
       width: 250,
       margin: EdgeInsets.all(8),
       child: Card(
-        color: color,
+        color: cardColor,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
         child: Padding(
           padding: const EdgeInsets.all(16),
@@ -23,15 +37,15 @@ class CardWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               Text(
-                title,
+                card.title,
                 style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
               ),
               Text(
-                'Balance: \$ $balance',
+                'Balance: \$ ${card.balance}',
                 style: TextStyle(color: Colors.white, fontSize: 16),
               ),
               Text(
-                cardNumber,
+                card.cardNumber,
                 style: TextStyle(color: Colors.white, fontSize: 16),
               ),
             ],
