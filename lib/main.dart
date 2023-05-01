@@ -12,6 +12,8 @@ class MyApp extends StatelessWidget {
       title: 'Banking App',
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        brightness: Brightness.dark,
+        cardColor: Color(0xFF424242),
       ),
       initialRoute: '/',
       routes: routes,

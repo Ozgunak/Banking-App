@@ -12,16 +12,16 @@ class CardWidget extends StatelessWidget {
 
     switch (card.color) {
       case 'blue':
-        cardColor = Colors.blue;
+        cardColor = Color(0xFFD0A018);
         break;
       case 'red':
-        cardColor = Colors.red;
+        cardColor = Color(0xFFD32F2F);
         break;
       case 'green':
-        cardColor = Colors.green;
+        cardColor = Color(0xFF388E3C);
         break;
       default:
-        cardColor = Colors.blue;
+        cardColor = Color(0xFF1E88E5);
     }
 
     return Container(
